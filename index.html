@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kaitlyn Hu — Business Analyst</title>
+  <meta name="description" content="Kaitlyn Hu: business analyst with experience in enterprise risk management, risk assessment and business intelligence. UMass Amherst, Commonwealth Honors College.">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta property="og:title" content="Kaitlyn Hu — Business Analyst">
+  <meta property="og:description" content="Enterprise risk management, risk assessment and business intelligence. Power BI, Excel/VBA, SAS, R.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./photo.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2315171C'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EKH%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="./index.html">Kaitlyn Hu</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="./about.html">About</a>
+        <a href="./projects.html">Projects</a>
+        <a href="./resume.html">Résumé</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+
+    <!-- HERO: the photo is the largest element on the first screen -->
+    <section class="hero" aria-label="Introduction">
+      <figure class="hero-photo">
+        <img src="./photo.jpg" width="800" height="1000" alt="Kaitlyn Hu">
+      </figure>
+      <div class="hero-text">
+        <h1>Kaitlyn Hu</h1>
+        <p class="role">Aiming for corporate finance: FP&amp;A or risk management</p>
+        <!-- From Kaitlyn's Oct 29 build prompt, in her words -->
+        <p class="lede">Junior at UMass Amherst’s Commonwealth Honors College, double majoring in managerial economics and psychology with a business minor.</p>
+        <dl class="facts">
+          <div><dt>Studying</dt><dd>Managerial Economics (BS) and Psychology (BA), Business minor</dd></div>
+          <div><dt>School</dt><dd>UMass Amherst, Commonwealth Honors College, <time datetime="2028-05">May 2028</time></dd></div>
+          <div><dt>Most recent</dt><dd>Business Analyst Aide, Con Edison, summer 2026</dd></div>
+        </dl>
+        <div class="actions">
+          <a class="btn primary" href="./resume.html">View résumé</a>
+          <a class="btn" href="mailto:kait.huuu@gmail.com">Email Kaitlyn</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE ONE LIVE THING: pick a tool, see the real work it was used in -->
+    <section id="used-where" aria-labelledby="used-where-h">
+      <div class="section-head">
+        <h2 id="used-where-h">Skills</h2>
+        <p>Every skill on my résumé. Tap one to see where it was used.</p>
+      </div>
+      <div class="tool-bar" data-tool-bar>
+        <p class="group-label first">Technical skills</p>
+        <div class="tools" role="group" aria-label="Technical skills">
+          <button class="tool" type="button" data-tool="powerbi" aria-pressed="false">Power BI</button>
+          <button class="tool" type="button" data-tool="excel" aria-pressed="false">Excel</button>
+          <button class="tool" type="button" data-tool="vba" aria-pressed="false">Macros / VBA</button>
+          <button class="tool" type="button" data-tool="vlookup" aria-pressed="false">VLOOKUP</button>
+          <button class="tool" type="button" data-tool="sas" aria-pressed="false">SAS</button>
+          <button class="tool" type="button" data-tool="r" aria-pressed="false">R Studio</button>
+        </div>
+        <!-- Also in the résumé's skills line, but no bullet names them, so they are listed, not linked. -->
+        <ul class="chips" aria-label="More technical skills">
+          <li>Pivot Tables</li><li>Excel formulas</li><li>PowerPoint</li><li>Word</li><li>Outlook</li>
+          <li>Microsoft Access</li><li>Google Suite</li><li>Salesforce</li>
+        </ul>
+
+        <p class="group-label">Key qualifications</p>
+        <div class="tools" role="group" aria-label="Key qualifications">
+          <button class="tool" type="button" data-tool="dataanalysis" aria-pressed="false">Data Analysis</button>
+          <button class="tool" type="button" data-tool="processimprovement" aria-pressed="false">Process Improvement</button>
+          <button class="tool" type="button" data-tool="automation" aria-pressed="false">AI &amp; Automation</button>
+          <button class="tool" type="button" data-tool="leadership" aria-pressed="false">Leadership &amp; Team Collaboration</button>
+        </div>
+
+        <!-- While a skill is selected this becomes a bar fixed to the bottom of the screen,
+             so the result is visible on a phone even though the rows are further down. -->
+        <div class="filter-status" data-filter-status>
+          <p class="status" data-status aria-live="polite"></p>
+          <a class="jump" data-jump href="#experience" hidden>See where</a>
+          <button class="tool clear" type="button" data-clear hidden>Show all</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE: wording from the résumé -->
+    <section id="experience" aria-labelledby="experience-h">
+      <div class="section-head">
+        <h2 id="experience-h">Experience</h2>
+        <p>Newest first. Open a role for details.</p>
+      </div>
+      <ul class="list">
+        <li id="exp-conedison" class="item" data-tools="powerbi vba processimprovement automation">
+          <details>
+            <summary>
+              <span class="org">Consolidated Edison, Inc.</span>
+              <span class="when"><time datetime="2026-05">May 2026</time> – <time datetime="2026-08">Aug 2026</time></span>
+              <span class="title">Business Analyst Aide Temp (SOX &amp; ERM | Finance)</span>
+              <span class="result">Executive-facing Power BI dashboard built on a database of 107+ Emerging Topics and Trends.</span>
+              <span class="toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="body">
+              <p class="where">New York, NY</p>
+              <ul>
+                <li data-tools="powerbi">Produced an executive-facing Power BI dashboard, leveraging a database of 107+ Emerging Topics and Trends (ETTs), enabling leadership to see department-level risks, monitor key risk indicators (KRIs), and support data-driven risk decisions.</li>
+                <li>Compiled, validated, and prepopulated critical data for corporate and departmental risk reports, improving KPI reporting, streamlining reporting workflows by 25% and delivering actionable risk insights to senior stakeholders.</li>
+                <li data-tools="vba processimprovement automation">Developed and implemented a VBA macro to automate the data entry of historical emerging trends and technologies, reducing manual entry time by over 50% and driving process improvement across reporting activities.</li>
+              </ul>
+              <ul class="tags" aria-label="Tools used">
+                <li data-tools="powerbi">Power BI</li>
+                <li data-tools="vba">VBA</li>
+              </ul>
+            </div>
+          </details>
+        </li>
+
+        <li id="exp-bny" class="item" data-tools="">
+          <details>
+            <summary>
+              <span class="org">BNY</span>
+              <span class="when"><time datetime="2025-07">Jul 2025</time></span>
+              <span class="title">Freshman Jumpstart Participant</span>
+              <span class="result">Selected for an intensive pre-internship program in financial services.</span>
+              <span class="toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="body">
+              <ul>
+                <li>Selected for an intensive pre-internship program, gaining hands-on exposure to financial services functions and analyst processes while completing advanced workshops in business communication and early-career strategy.</li>
+              </ul>
+            </div>
+          </details>
+        </li>
+
+        <li id="exp-ca" class="item" data-tools="leadership">
+          <details>
+            <summary>
+              <span class="org">C&amp;A Digital</span>
+              <span class="when"><time datetime="2025-05">May 2025</time> – <time datetime="2025-07">Jul 2025</time></span>
+              <span class="title">Marketing and Client Experience Intern</span>
+              <span class="result">Led a podcast initiative and a team evaluation of enterprise project management platforms.</span>
+              <span class="toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="body">
+              <p class="where">White Plains, NY</p>
+              <ul>
+                <li data-tools="leadership">Spearheaded a podcast initiative, leading cross-functional teams to align digital content with brand messaging. Demonstrated written and verbal communications skills and the ability to navigate through ambiguity.</li>
+                <li data-tools="leadership">Led a team in evaluating enterprise project management platforms, conducting business process analysis and presenting strategic recommendations to leadership to optimize project workflows. Demonstrated strong interpersonal, written, and oral communication skills when presenting the new project management tool.</li>
+              </ul>
+            </div>
+          </details>
+        </li>
+
+        <li id="exp-yodelight" class="item" data-tools="">
+          <details>
+            <summary>
+              <span class="org">Yo-Delight Frozen Yogurt</span>
+              <span class="when"><time datetime="2021-07">Jul 2021</time> – <time datetime="2024-08">Aug 2024</time></span>
+              <span class="title">Team Member</span>
+              <span class="result">Ran store operations alone during peak and off-peak shifts.</span>
+              <span class="toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="body">
+              <p class="where">Waldwick, NJ</p>
+              <ul>
+                <li>Solely operated store operations during peak and off-peak shifts, seamlessly managing customer flow, machine maintenance, and food prep simultaneously. Demonstrated ability to work in a fast-paced environment.</li>
+              </ul>
+            </div>
+          </details>
+        </li>
+      </ul>
+    </section>
+
+    <!-- PROJECTS: from "Technical Project Experience" on the résumé -->
+    <section id="projects" aria-labelledby="projects-h">
+      <div class="section-head">
+        <h2 id="projects-h">Projects</h2>
+        <p>Course data projects.</p>
+      </div>
+      <ul class="list">
+        <li id="proj-econ" class="item" data-tools="excel powerbi sas vlookup dataanalysis leadership">
+          <details>
+            <summary>
+              <span class="org">Economics Statistics</span>
+              <span class="title">Caffeine use among college students and its impact on health</span>
+              <span class="result">Spreadsheet modeling and data analysis in Excel, Power BI and SAS.</span>
+              <span class="toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="body">
+              <ul>
+                <li data-tools="excel dataanalysis">Gained expertise in spreadsheet modeling and data analysis in Microsoft Excel.</li>
+                <li data-tools="dataanalysis">Researched, cleaned, and analyzed datasets on caffeine use amongst college students and impact on health.</li>
+                <li data-tools="excel powerbi vlookup">Utilized Excel tools such as VLOOKUP and Microsoft Power BI.</li>
+                <li data-tools="sas dataanalysis">Utilized SAS scripting tools to create mosaic graphs and histograms, strengthening data analysis and management skills.</li>
+                <li data-tools="leadership">Assumed leadership duties with collaborative team skills.</li>
+              </ul>
+              <ul class="tags" aria-label="Tools used">
+                <li data-tools="excel">Excel</li>
+                <li data-tools="powerbi">Power BI</li>
+                <li data-tools="sas">SAS</li>
+              </ul>
+            </div>
+          </details>
+        </li>
+        <li id="proj-psych" class="item" data-tools="r dataanalysis">
+          <details>
+            <summary>
+              <span class="org">Psychology Statistics</span>
+              <span class="title">Statistical testing in RStudio</span>
+              <span class="result">Pearson’s r, correlation tests and t-tests.</span>
+              <span class="toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="body">
+              <ul>
+                <li data-tools="r dataanalysis">Utilized RStudio to analyze datasets and identify Pearson’s r, correlation tests, and t-tests.</li>
+              </ul>
+              <ul class="tags" aria-label="Tools used">
+                <li data-tools="r">R (RStudio)</li>
+              </ul>
+            </div>
+          </details>
+        </li>
+      </ul>
+    </section>
+
+    <!-- EDUCATION snapshot -->
+    <section id="education" aria-labelledby="education-h">
+      <div class="section-head">
+        <h2 id="education-h">Education</h2>
+        <p>University of Massachusetts Amherst</p>
+      </div>
+      <div class="split">
+        <div>
+          <h3>Commonwealth Honors College</h3>
+          <p class="sub">Managerial Economics (BS) and Psychology (BA). Minor: Business. Expected <time datetime="2028-05">May 2028</time>.</p>
+        </div>
+        <ul class="plain-list">
+          <li>Chancellor’s Award</li>
+          <li>Dean’s List <span class="muted">Fall 2024, Spring 2025, Fall 2025, Spring 2026</span></li>
+          <li>Relevant coursework <span class="muted">Microeconomics (econometrics), Macroeconomics, Financial Accounting (financial statement analysis), Statistics, Operational Management</span></li>
+        </ul>
+      </div>
+      <p class="more"><a class="tap" href="./about.html">Leadership, certifications and more on the About page</a></p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© 2026 Kaitlyn Hu</span>
+      <nav class="footer-links" aria-label="Contact"><a href="mailto:kait.huuu@gmail.com">Email</a><a href="https://www.linkedin.com/in/kaitlyn-hu/">LinkedIn</a></nav>
+    </div>
+  </footer>
+</body>
+</html>

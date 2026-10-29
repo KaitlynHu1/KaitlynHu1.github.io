@@ -1,0 +1,394 @@
+/* =========================================================
+   Kaitlyn Hu — portfolio styles
+   Order: 1) design tokens  2) base  3) layout  4) components
+   5) the "Used where?" filter  6) résumé + print
+   ========================================================= */
+
+/* ---------- 1. Design tokens ----------
+   Every color and size lives here, so a change in one place
+   changes the whole site. */
+:root {
+  --ground:  #FFFFFF;  /* page background */
+  --surface: #F3F2EF;  /* quiet warm-gray panels (tool bar, résumé sheet edge) */
+  --ink:     #1A1C20;  /* main text */
+  --muted:   #5B6068;  /* secondary text; about 6.4:1 contrast on white */
+  --rule:    #DDDBD6;  /* thin dividers */
+  --accent:  #3A3F47;  /* graphite: links + the selected tool only; about 10:1 on white (neutral palette, Oct 29) */
+  --accent-tint: #E9E7E2; /* warm-gray highlight behind a matching bullet */
+
+  /* Five type sizes, clearly far apart */
+  --t-xs: 14px;
+  --t-s:  17px;
+  --t-m:  22px;
+  --t-l:  34px;
+  --t-xl: 56px;
+
+  --font: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --page: 1120px;      /* max content width */
+  --gutter: 20px;      /* side padding on phones */
+}
+
+/* ---------- 2. Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--t-s);
+  line-height: 1.55;
+  caret-color: var(--accent);
+}
+
+/* Dates and numbers line up in columns */
+time, .num { font-variant-numeric: tabular-nums; }
+
+::selection { background: var(--accent); color: #fff; }
+
+h1, h2, h3 { line-height: 1.15; margin: 0; font-weight: 600; }
+p { margin: 0; }
+
+a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+
+/* Keyboard users always see where they are */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+ul { padding-left: 1.1em; margin: 0; }
+
+.skip {
+  position: absolute; left: -9999px;
+}
+.skip:focus { left: var(--gutter); top: 8px; background: var(--ground); padding: 8px 12px; z-index: 10; }
+
+/* ---------- 3. Layout ---------- */
+.wrap {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 24px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+  font-size: var(--t-s);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.site-nav { display: flex; flex-wrap: wrap; gap: 0 4px; }
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;           /* comfortable touch target */
+  padding: 0 10px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: var(--t-xs);
+}
+.site-nav a:hover { color: var(--ink); }
+.site-nav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+
+main { padding-bottom: 96px; }
+
+section { padding-top: 72px; }
+
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ink);
+}
+.section-head h2 { font-size: var(--t-l); letter-spacing: -0.01em; }
+.section-head p { color: var(--muted); font-size: var(--t-xs); }
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: var(--t-xs);
+}
+.site-footer .wrap {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px;
+  padding-top: 12px; padding-bottom: 32px; align-items: center;
+}
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* ---------- 4. Components ---------- */
+
+/* Hero: the photo is the biggest thing on the first screen */
+.hero {
+  display: grid;
+  gap: 28px;
+  padding-top: 8px;
+}
+.hero-photo { margin: 0; }
+.hero-photo img {
+  width: 100%;
+  aspect-ratio: 1 / 1;        /* square on phones so the name is still near the top */
+  object-fit: cover;
+  object-position: 50% 22%;   /* keep the face in frame when cropped */
+  border: 1px solid var(--rule);
+  background: var(--surface);
+}
+.hero h1 {
+  font-size: var(--t-l);
+  letter-spacing: -0.02em;
+}
+.role { font-size: var(--t-m); color: var(--muted); margin-top: 6px; }
+.lede { font-size: var(--t-m); margin-top: 24px; max-width: 30em; line-height: 1.4; }
+
+.facts {
+  display: grid;
+  gap: 14px;
+  margin: 32px 0 0;
+  padding: 0;
+}
+.facts div { display: grid; gap: 2px; align-content: start; }
+.facts dt { font-size: var(--t-xs); color: var(--muted); }
+.facts dd { margin: 0; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;       /* fully round, on purpose; nothing else is rounded */
+  font: inherit;
+  font-size: var(--t-s);
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  background: var(--ground);
+  color: var(--ink);
+}
+.btn:hover { background: var(--surface); }
+.btn.primary { background: var(--ink); color: #fff; }
+.btn.primary:hover { background: var(--accent); }
+
+/* Experience / project rows */
+.list { list-style: none; padding: 0; margin: 0; }
+
+.item { border-bottom: 1px solid var(--rule); }
+
+.item summary {
+  list-style: none;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 16px;
+  padding: 22px 0;
+  min-height: 44px;
+}
+.item summary::-webkit-details-marker { display: none; }
+
+.item .org { font-size: var(--t-m); font-weight: 600; }
+.item .title { color: var(--ink); grid-column: 1 / -1; }
+.item time, .item .when { color: var(--muted); font-size: var(--t-xs); white-space: nowrap; align-self: baseline; }
+.item .result { color: var(--muted); grid-column: 1 / -1; max-width: 46em; }
+
+/* The "+" / "–" that tells you a row opens */
+.item .toggle {
+  grid-column: 1 / -1;
+  font-size: var(--t-xs);
+  color: var(--accent);
+  margin-top: 6px;
+}
+.item .toggle::after { content: "Show details"; }
+.item details[open] .toggle::after { content: "Hide details"; }
+
+.item .body { padding: 0 0 26px; max-width: 46em; }
+.item .body li { margin-bottom: 10px; }
+.item .where { color: var(--muted); font-size: var(--t-xs); margin-bottom: 12px; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; padding: 0; list-style: none; }
+.tags li {
+  font-size: var(--t-xs);
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+/* Two-column text blocks (education, about) */
+.split { display: grid; gap: 28px; padding-top: 24px; }
+.split h3 { font-size: var(--t-m); }
+.split .sub { color: var(--muted); margin-top: 4px; }
+.plain-list { list-style: none; padding: 0; }
+.plain-list li { padding: 10px 0; border-bottom: 1px solid var(--rule); }
+.plain-list li:last-child { border-bottom: 0; }
+.plain-list .muted { color: var(--muted); }
+
+.more { margin-top: 16px; font-size: var(--t-s); }
+.tap { display: inline-block; padding: 11px 0; }
+
+/* About page photo */
+.about-head { display: grid; gap: 28px; align-items: start; }
+.about-head img {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+}
+.about-head h1 { font-size: var(--t-l); letter-spacing: -0.02em; }
+.summary { font-size: var(--t-m); line-height: 1.45; margin-top: 20px; max-width: 32em; }
+.source-note { color: var(--muted); font-size: var(--t-xs); margin-top: 12px; }
+
+/* Page title for inner pages */
+.page-title { padding-top: 40px; }
+.page-title h1 { font-size: var(--t-l); letter-spacing: -0.02em; }
+.page-title p { color: var(--muted); margin-top: 10px; max-width: 36em; }
+
+/* Contact */
+.contact-list { list-style: none; padding: 0; margin: 32px 0 0; }
+.contact-list li { padding: 22px 0; border-bottom: 1px solid var(--rule); display: grid; gap: 2px; }
+.contact-list .label { color: var(--muted); font-size: var(--t-xs); }
+.contact-list a { font-size: var(--t-m); word-break: break-word; display: inline-block; padding: 5px 0; }
+
+/* ---------- 5. "Used where?" filter ---------- */
+.tool-bar {
+  background: var(--surface);
+  padding: 24px;
+  margin-top: 24px;
+}
+.tool-bar p.hint { color: var(--muted); font-size: var(--t-xs); }
+.tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+
+.tool {
+  white-space: nowrap;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--ground);
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--t-s);
+  cursor: pointer;
+}
+.tool:hover { border-color: var(--ink); }
+.tool[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+.tool.clear { color: var(--muted); border-style: dashed; }
+.tool.clear[hidden] { display: none; }
+
+.filter-status { display: none; }
+.filtering .filter-status {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px;
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 5;
+  padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
+  background: var(--ink); color: #fff;
+}
+.status { font-size: var(--t-s); flex: 1 1 auto; }
+.jump { color: #fff; display: inline-flex; align-items: center; min-height: 44px; font-weight: 500; }
+.filtering .filter-status .tool.clear { margin: 0; background: transparent; color: #fff; border: 1px solid #fff; border-style: solid; }
+.filtering main { padding-bottom: 140px; }
+/* Skill groups: a small gray label above each row of buttons */
+.group-label { font-size: var(--t-xs); color: var(--muted); margin-top: 22px; }
+.group-label.first { margin-top: 0; }
+/* Skills with no résumé bullet to point to: plain text, clearly not buttons */
+.chips { display: flex; flex-wrap: wrap; gap: 6px 18px; list-style: none; padding: 0; margin: 12px 0 0; }
+.chips li { font-size: var(--t-xs); color: var(--ink); }
+
+/* When a tool is picked: non-matching rows fade, matching bullets get a tint.
+   No animation: the brief asked for motion "None". */
+/* Non-matching rows stay readable (muted gray passes 4.5:1); they just step back */
+.filtering .item.dim .org,
+.filtering .item.dim .title { color: var(--muted); font-weight: 400; }
+.filtering .item:not(.dim) .org { color: var(--accent); }
+.filtering li.hit { background: var(--accent-tint); box-shadow: -6px 0 0 var(--accent-tint), 6px 0 0 var(--accent-tint); }
+.filtering .tags li.hit { background: var(--accent); color: #fff; border-color: var(--accent); box-shadow: none; }
+
+/* ---------- 6. Résumé page ----------
+   The sheet copies the original one-page résumé: Times New Roman,
+   bold capital headings, round bullets, letter-size page. */
+.resume-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; padding-top: 32px; max-width: 8.5in; margin: 0 auto; }
+.resume-buttons { display: flex; flex-wrap: wrap; gap: 12px; }  /* keeps the PDF note and print button side by side */
+
+.sheet {
+  max-width: 8.5in;                /* US letter width */
+  margin: 24px auto 0;
+  padding: 0.4in 0.5in 0.4in;      /* same white margins as the original */
+  background: #fff;
+  border: 1px solid var(--rule);
+  font-family: "Times New Roman", Times, "Liberation Serif", serif;
+  font-size: 10pt;
+  line-height: 1.17;
+  color: #000;
+}
+.sheet h1.r-name { text-align: center; font-size: 22pt; font-weight: 700; letter-spacing: 0.01em; }
+.sheet .r-contact { text-align: center; margin-top: 2px; }
+.sheet a { color: var(--accent); }
+.sheet h2 { font-size: 12pt; font-weight: 700; margin: 10px 0 1px; }
+.sheet p { margin: 0; }
+.sheet ul { list-style: disc; padding-left: 0.45in; margin: 0 0 2px; }
+.sheet li { margin: 0; padding-left: 0.08in; }
+
+/* Phones: date on its own line so company names don't get squeezed; roomier tool panel */
+@media (max-width: 599px) {
+  .item summary { grid-template-columns: 1fr; }
+  .item .when { grid-row: 2; }
+  .tool-bar { padding: 20px 16px; }
+}
+
+/* Phones: let the sheet breathe instead of shrinking letter-size text */
+@media (max-width: 600px) {
+  .sheet { padding: 20px 16px; font-size: 15px; line-height: 1.35; }
+  .sheet h1.r-name { font-size: 26px; }
+  .sheet .r-contact { word-break: break-word; }
+  .sheet ul { padding-left: 1.2em; }
+  .sheet li { padding-left: 0; margin-bottom: 4px; }
+}
+
+/* ---------- Wider screens ---------- */
+@media (min-width: 768px) {
+  :root { --gutter: 40px; }
+  .hero { grid-template-columns: 5fr 7fr; gap: 48px; align-items: center; padding-top: 24px; }
+  .hero-photo img { aspect-ratio: 4 / 5; }
+  .hero h1 { font-size: var(--t-xl); }
+  .facts { gap: 16px; }
+  .item summary { grid-template-columns: 1fr auto; }
+  .split { grid-template-columns: 1fr 1fr; gap: 56px; }
+  .about-head { grid-template-columns: 320px 1fr; gap: 56px; }
+  .tool-bar { padding: 28px 32px; }
+}
+
+@media (min-width: 1200px) {
+  .hero { grid-template-columns: 1fr 1.25fr; align-items: end; gap: 56px; }
+  .facts { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .facts dd { font-size: var(--t-s); }
+}
+
+/* Print / Save as PDF: only the résumé sheet, on one letter page */
+@page { size: letter; margin: 0; }
+@media print {
+  .site-header, .site-footer, .no-print { display: none !important; }
+  html, body { background: #fff; }
+  main { padding: 0 !important; max-width: none !important; }
+  .sheet { border: 0; margin: 0; max-width: none; width: 8.5in; padding: 0.4in 0.5in 0.3in; font-size: 10pt; }
+  .sheet a { color: var(--accent); }
+}
